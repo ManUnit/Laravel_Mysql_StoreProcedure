@@ -9,13 +9,13 @@ use App\Http\Controllers\Controller;
 class Listview extends Controller
 {
     //
-       public function index()
+       public function index($start,$stop,$id)
     {  
-        $id = 35 ; 
-        $dateStart = '2021-07-01' ; 
-        $dateStop = '2021-08-31' ;
-        $aaaa =  DB::select( 'CALL listview("' . $dateStart. '","'. $dateStop .'",' . $id .')'  ) ;
-         dd('test',$aaaa );
-        return view('user.index', ['users' => $aaa]);
+       // $id = 35 ; 
+        $dateStart = $start ; 
+        $dateStop =  $stop  ;
+        $attendances =  DB::select( 'CALL listview("' . $dateStart. '","'. $dateStop .'",' . $id .')'  ) ;
+       //  dd('test',$aaaa );
+        return view('montlyattendance', ['attendances' => (array) $attendances]);
     }
 }
