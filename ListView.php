@@ -8,15 +8,15 @@ use App\Http\Controllers\Controller;
 
 class Listview extends Controller
 {
-    //
+   
        public function index($start,$stop,$id)
     {  
-       // $id = 35 ; 
+      
         $dateStart = $this->minDate($start) ; 
         $dateStop =  $this->maxDate($stop)  ;
-        // dd($dateStart,$dateStop) ;
+       
         $attendances =  DB::select( 'CALL listview("' . $dateStart. '","'. $dateStop .'",' . $id .')'  ) ;
-       //  dd('test',$aaaa );
+       
         return view('admin.employees.montlyattendance', ['attendances' => (array) $attendances]);
     }
 
@@ -29,7 +29,7 @@ class Listview extends Controller
    
    private function maxDate($dateYmD){
        $day = preg_split ("/[\-]/",$dateYmD); 
-       //dd($dateYmD , $yearnum , $month , $daynum  ) ; 
+  
        if ((int) $day[1] == 2 && (int) $day[2]  > 28 ){ 
            $getday = ($this->isLeapYeay($day[0] ))?29:28 ; 
            return $day[0]."-".$day[1]."-".$getday  ; 
