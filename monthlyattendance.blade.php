@@ -43,7 +43,7 @@ table td {
       
       list(  $checkin  , $inbgcolor ) =  ($attendance->checkin == null )?  [ "N/A"  , "#FF0000"  ] :  [ $attendance->checkin , "#00FF00" ]  ;
       list ( $checkout , $outbgcolor ) =  ($attendance->checkout == null )?  [ "N/A"  , "#FF0000"  ] :  [ $attendance->checkout , "#00FF00" ]  ;
-      //  is SUNDAY ? chage background = orenged  
+      //  is SUNDAY ? chage background color = orenge 
       list( $inbgcolor , $outbgcolor ) = (date('w', strtotime($attendance->date)) == 0 )? ["#FFFF00" , "#FFFF00"] :   [$inbgcolor , $outbgcolor ]   ; 
 
      @endphp
