@@ -26,9 +26,7 @@ table td {
 
 <br>
 
-@php
-  
-@endphp
+
 
 <table>
 <thead>
